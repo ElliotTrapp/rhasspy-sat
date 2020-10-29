@@ -1,0 +1,15 @@
+rhasspy:
+    image: "rhasspy/rhasspy:2.5.5"
+    container_name: rhasspy-2.5.5
+    restart: unless-stopped
+    volumes:
+        - "/home/pi/HomeAutomation/rhasspy-2.5.5/profiles:/profiles"
+        - "/etc/localtime:/etc/localtime:ro"
+    ports:
+        - "1883:1883"
+        - "12101:12101"
+        - "12333:12333"
+        - "12183:12183"
+    devices:
+        - "/dev/snd:/dev/snd"
+    command: --user-profiles /profiles --profile en

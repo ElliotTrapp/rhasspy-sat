@@ -1,0 +1,55 @@
+{
+    "dialogue": {
+        "satellite_site_ids": "elliots-nas",
+        "system": "rhasspy"
+    },
+    "intent": {
+        "remote": {
+            "url": "http://elliots-nas:12101/api/text-to-intent"
+        },
+        "satellite_site_ids": "elliots-nas",
+        "system": "remote"
+    },
+    "microphone": {
+        "arecord": {
+            "device": "hw:CARD=MATRIXIOSOUND,DEV=0"
+        },
+        "pyaudio": {
+            "device": "1"
+        },
+        "system": "arecord"
+    },
+    "mqtt": {
+        "enabled": "",
+        "host": "elliots-nas",
+        "site_id": "pi-sat-2"
+    },
+    "sounds": {
+        "aplay": {
+            "device": "hw:CARD=Device,DEV=0"
+        },
+        "system": "aplay"
+    },
+    "speech_to_text": {
+        "remote": {
+            "url": "http://elliots-nas:12101/api/speech-to-text"
+        },
+        "satellite_site_ids": "elliots-nas",
+        "system": "remote"
+    },
+    "text_to_speech": {
+        "remote": {
+            "url": "http://elliots-nas:12101/api/text-to-speech"
+        },
+        "satellite_site_ids": "elliots-nas",
+        "system": "remote"
+    },
+    "wake": {
+        "satellite_site_ids": "elliots-nas",
+        "snowboy": {
+            "apply_frontend": true,
+            "model": "computer.pmdl"
+        },
+        "system": "snowboy"
+    }
+}
