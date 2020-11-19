@@ -1,32 +1,33 @@
 {
     "dialogue": {
-        "satellite_site_ids": "elliots-nas",
         "system": "rhasspy"
     },
     "intent": {
         "remote": {
             "url": "http://elliots-nas:12101/api/text-to-intent"
         },
-        "satellite_site_ids": "elliots-nas",
-        "system": "remote"
+        "system": "hermes"
     },
     "microphone": {
         "arecord": {
-            "device": "hw:CARD=MATRIXIOSOUND,DEV=0"
+            "device": "sysdefault:CARD=ArrayUAC10",
+            "udp_audio_host": ""
         },
         "pyaudio": {
-            "device": "1"
+            "device": "0",
+            "udp_audio_host": "",
+            "udp_audio_port": ""
         },
         "system": "arecord"
     },
     "mqtt": {
-        "enabled": "",
+        "enabled": "true",
         "host": "elliots-nas",
-        "site_id": "pi-sat-2"
+        "site_id": "pi-sat-1"
     },
     "sounds": {
         "aplay": {
-            "device": "hw:CARD=Device,DEV=0"
+            "device": "plughw:CARD=Device,DEV=0"
         },
         "system": "aplay"
     },
@@ -34,22 +35,32 @@
         "remote": {
             "url": "http://elliots-nas:12101/api/speech-to-text"
         },
-        "satellite_site_ids": "elliots-nas",
-        "system": "remote"
+        "system": "hermes"
     },
     "text_to_speech": {
+        "marytts": {
+            "url": "http://elliots-nas:59125/process",
+            "voice": "cmu-rms-hsmm"
+        },
         "remote": {
             "url": "http://elliots-nas:12101/api/text-to-speech"
         },
-        "satellite_site_ids": "elliots-nas",
-        "system": "remote"
+        "system": "marytts"
     },
     "wake": {
-        "satellite_site_ids": "elliots-nas",
+        "porcupine": {
+            "keyword_path": "terminator.ppn",
+            "udp_audio": ""
+        },
+        "raven": {
+            "average_templates": false,
+            "minimum_matches": "2"
+        },
         "snowboy": {
             "apply_frontend": true,
-            "model": "computer.pmdl"
+            "model": "computer.umdl",
+            "sensitivity": "0.5"
         },
-        "system": "snowboy"
+        "system": "porcupine"
     }
 }
